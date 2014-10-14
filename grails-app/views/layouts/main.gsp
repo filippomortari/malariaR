@@ -71,8 +71,8 @@
 					ng-href="#/output">Output</a></li>
 				<li class='launcher arrow'><i class='icon-long-arrow-down'></i>
 					</li>
-				<li class='launcher'><i class='icon-bar-chart'></i> <a
-					href="#">Results</a></li>
+				<li ng-class="getClass('/results')" class='launcher'><i class='icon-bar-chart'></i> <a
+					ng-href="#/results">Results</a></li>
 				<!-- <li class='launcher'><i class='icon-table'></i> <a
 					href="tables.html">Tables</a></li>
 				<li class='launcher dropdown hover'><i class='icon-flag'></i> <a

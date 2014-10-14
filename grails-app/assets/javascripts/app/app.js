@@ -2,13 +2,17 @@
 /* App Module */
 
 //= require_tree /input
+//= require_tree /output
+//= require_tree /results
 //= require common
 
 
 var malariaRapp = angular.module('malariaRapp', [
   'ngRoute',
   'common',
-  'input'
+  'input',
+  'output',
+  'results'
   
 ]);
 
@@ -21,9 +25,13 @@ malariaRapp.config(['$routeProvider',
       }).
       when('/output', {
         templateUrl: 'assets/app/output/output-params.tpl.html',
-        controller: 'PhoneDetailCtrl'
+        controller: 'OutputCtrl'
       }).
+      when('/results', {
+          templateUrl: 'assets/app/results/results.tpl.html',
+          controller: 'ResultsCtrl'
+        }).
       otherwise({
-        redirectTo: '#'
+        redirectTo: '/input'
       });
   }]);
