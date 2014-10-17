@@ -1,21 +1,104 @@
 <div class='panel panel-default' ng-controller="OutputCtrl">
-          <div class='panel-heading'>
-            <i class='icon-beer icon-large'></i>
-            Output Rocks!
-            <div class='panel-tools'>
-              <div class='btn-group'>
-                <a class='btn' href='#'>
-                  <i class='icon-refresh'></i>
-                  Refresh statics
-                </a>
-                <a class='btn' data-toggle='toolbar-tooltip' href='#' title='Toggle'>
-                  <i class='icon-chevron-down'></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <script type="text/javascript">
-        $(".knob").knob();
-        </script>
-      
+	<div class='panel-heading'>
+		<i class='icon-edit icon-large'></i> Output Parameters
+	</div>
+	<div class="panel-body">
+		<pre>
+		{{request}}
+		</pre>
+		<form>
+			<fieldset>
+				<legend>Output</legend>
+				<div class="form-group">
+					<label class="control-label">Individual Estimate of R</label>
+					<div class="radio">
+						<input name="estimate_radio" ng-model="request.estimateR" type="radio" value="true"> Yes
+						<br>
+					</div>
+					<div class="radio">
+						<input name="estimate_radio" ng-model="request.estimateR" type="radio" value="false"> No <br>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label'>Number of cases detected</label> <input
+						class='form-control' placeholder='cases detected...' type='text'>
+				</div>
+				<div class='form-group'>
+					<label class='control-label'>How many of these were
+						imported</label> <input class='form-control' placeholder='Enter username'
+						type='text'>
+				</div>
+				<div class="form-group">
+					<label class="control-label">Figure</label>
+					<div class="radio">
+						<input name="figure_radio" type="radio" value="yes"> Yes <br>
+					</div>
+					<div class="radio">
+						<input name="figure_radio" type="radio" value="no"> No <br>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">R thresold</label>
+					<div class="radio">
+						<input name="rThresold" type="radio" value="half"> 0.5 <br>
+					</div>
+					<div class="radio">
+						<input name="rThresold" type="radio" value="one"> 1 <br>
+					</div>
+					<div class="radio">
+						<input name="rThresold" type="radio" value="two"> 2 <br>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"> <input name="rThresold"
+							type="radio">
+						</span> <input type="text" class="form-control" placeholder="specify...">
+					</div>
+				</div>
+				<h4>Figure range</h4>
+				<div class='form-group'>
+					<label class='control-label'>Minimum number of cases</label> <input
+						class='form-control' placeholder='cases detected...' type='text'>
+				</div>
+				<div class='form-group'>
+					<label class='control-label'>Maximum number of cases</label> <input
+						class='form-control' placeholder='cases detected...' type='text'>
+				</div>
+				<div class="form-group">
+					<label class="control-label">Number of points</label> <select
+						class="form-control">
+						<option>10</option>
+						<option>20</option>
+						<option>30</option>
+						<option>40</option>
+						<option>50</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label class="control-label">Log <i>x axis</i></label>
+					<div class="radio">
+						<input name="logXaxis" type="radio" value="yes"> Yes <br>
+					</div>
+					<div class="radio">
+						<input name="logXaxis" type="radio" value="no"> No <br>
+					</div>
+				</div>
+				<legend>Where shall we send the results</legend>
+				<div class='form-group'>
+					<label class='control-label'>email address</label> <input
+						class='form-control' placeholder='cases detected...' type='text'>
+				</div>
+
+			</fieldset>
+
+			<div class="form-actions text-center">
+				<a ng-href="#/input" class="btn btn-primary" type="submit"><i
+					class="icon-long-arrow-left"></i> back to input parameters</a> <a
+					ng-href="#/output" class="btn btn-primary" type="submit">set
+					the output <i class="icon-long-arrow-right"></i>
+				</a>
+
+			</div>
+		</form>
+	</div>
+</div>
+

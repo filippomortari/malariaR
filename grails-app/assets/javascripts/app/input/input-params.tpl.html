@@ -1,21 +1,106 @@
 <div class='panel panel-default' ng-controller="InputCtrl">
-          <div class='panel-heading'>
-            <i class='icon-beer icon-large'></i>
-            Input Rocks!
-            <div class='panel-tools'>
-              <div class='btn-group'>
-                <a class='btn' href='#'>
-                  <i class='icon-refresh'></i>
-                  Refresh statics
-                </a>
-                <a class='btn' data-toggle='toolbar-tooltip' href='#' title='Toggle'>
-                  <i class='icon-chevron-down'></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <script type="text/javascript">
-        $(".knob").knob();
-        </script>
-      
+	<div class='panel-heading'>
+		<i class='icon-edit icon-large'></i> Input Parameters
+	</div>
+	<div class="panel-body">
+		<form>
+			<fieldset>
+				<legend>Disease information</legend>
+				<div class="form-group">
+					<label class="control-label">Disease</label> 
+					<select	class="form-control" ng-model="request.diseaseName">
+						<option>Malaria</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label class="control-label">Species</label> <select
+						class="form-control">
+						<option>P.Falciparum</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label class="control-label">Location</label> <select
+						class="form-control">
+						<option>NA</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label">Time period (years)</label>
+					<div class="radio">
+						<input name="options_radio" type="radio" value="half">
+						0.5 <br>
+					</div>
+					<div class="radio">
+						<input name="options_radio" type="radio" value="one">
+						1 <br>
+					</div>
+					<div class="radio">
+						<input name="options_radio" type="radio" value="two">
+						2 <br>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"> <input
+							name="options_radio" type="radio">
+						</span> <input type="text" class="form-control" placeholder="specify...">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">Z</label>
+					<div class="radio">
+						<input  name="z_radio" type="radio"
+							value="default"> use default <br>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"> <input
+							name="z_radio"  type="radio">
+						</span> <input type="text" class="form-control" placeholder="specify...">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label"><i>k</i></label>
+					<div class="radio">
+						<input name="k_radio" type="radio"
+							value="default"> use default <br>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"> <input
+							name="k_radio" type="radio">
+						</span> <input type="text" class="form-control" placeholder="specify...">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label"><i>Minimum possible case detection rate</i></label>
+					<div class="radio">
+						<input name="k_radio" type="radio"
+							value="unknown"> Not known <br>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"> <input
+							name="k_radio" type="radio">
+						</span> <input type="text" class="form-control" placeholder="specify...">
+					</div>
+				</div>
+
+			</fieldset>
+			
+			<div class="form-actions text-center">
+				<a ng-href="#/output" class="btn btn-primary" type="submit">set the output <i class="icon-long-arrow-right"></i></a>
+				
+			</div>
+		</form>
+	</div>
+</div>
+

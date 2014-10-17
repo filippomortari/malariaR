@@ -1,5 +1,6 @@
 angular.module('input', [])
 
-.controller('InputCtrl', ['$scope', 
-                            function($scope) {
+.controller('InputCtrl', ['$scope', 'request', 
+                            function($scope, request) {
+	$scope.request = request;
 }]);
