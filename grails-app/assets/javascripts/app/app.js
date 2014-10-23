@@ -7,16 +7,7 @@
 //= require common
 
 
-var malariaRapp = angular.module('malariaRapp', [
-                                                 'ngRoute',
-                                                 'common',
-                                                 'input',
-                                                 'output',
-                                                 'results'
-
-                                                 ]);
-
-malariaRapp.config(['$routeProvider',
+angular.module('malariaRapp', ['ngRoute','common','input','output','results']).config(['$routeProvider',
                     function($routeProvider) {
 	$routeProvider.
 	when('/input', {
@@ -34,9 +25,7 @@ malariaRapp.config(['$routeProvider',
 	otherwise({
 		redirectTo: '/input'
 	});
-}]);
-
-malariaRapp.factory('request', function(){
+}]).factory('request', function(){
 
 	return {
 		diseaseName:'',

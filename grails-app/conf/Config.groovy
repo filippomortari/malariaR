@@ -95,6 +95,16 @@ environments {
     }
 }
 
+/*
+ * sys variables
+ * */
+SGE_ROOT = "/opt/sge/current"
+SGE_CELL = "bss"
+SGE_CLUSTER_NAME="BSS_6_2u5_1"
+
+RESULT_TARGET_LOCATION = "/wwwtmp/churcher/projects"
+R_SCRIPT_PATH = "/usr/biosoft/web/churcher/churcher_test.sh"
+
 // log4j configuration
 log4j.main = {
     // Example of changing the log pattern for the default console appender:
@@ -115,3 +125,6 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+grails.assets.minifyJs = false
+grails.assets.bundle = false
