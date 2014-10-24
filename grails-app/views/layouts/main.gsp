@@ -23,7 +23,11 @@
 	rel="stylesheet" type="text/css" />
 
 <asset:javascript src="application.js" />
+<asset:javascript src="spring-websocket" />
+<script>
+        window.BASE_URL =  "${request.getContextPath()}";
 
+</script>
 
 <g:layoutHead />
 </head>

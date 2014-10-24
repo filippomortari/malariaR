@@ -62,6 +62,7 @@ grails.project.dependency.resolution = {
         compile ":scaffolding:2.1.0"
         compile ':cache:1.1.6'
         compile ":asset-pipeline:1.8.7"
+		compile ":spring-websocket:1.0.0"
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.5.3" // or ":hibernate:3.6.10.15"
@@ -75,3 +76,6 @@ grails.project.dependency.resolution = {
         //compile ":handlebars-asset-pipeline:1.3.0.3"
     }
 }
+
+grails.tomcat.nio = true
+grails.tomcat.scan.enabled = true

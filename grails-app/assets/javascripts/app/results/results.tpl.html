@@ -1,21 +1,18 @@
 <div class='panel panel-default' ng-controller="ResultsCtrl">
-          <div class='panel-heading'>
-            <i class='icon-beer icon-large'></i>
-            Results Rocks!
-            <div class='panel-tools'>
-              <div class='btn-group'>
-                <a class='btn' href='#'>
-                  <i class='icon-refresh'></i>
-                  Refresh statics
-                </a>
-                <a class='btn' data-toggle='toolbar-tooltip' href='#' title='Toggle'>
-                  <i class='icon-chevron-down'></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <script type="text/javascript">
-        $(".knob").knob();
-        </script>
-      
+	<div class='panel-heading'>
+		<i class='icon-edit icon-large'></i> Results
+	</div>
+	<div class="panel-body">
+		
+		<form>
+			
+
+			<div class="form-actions text-center">
+				<button class="btn btn-primary btn-lg" ng-click="processRequest()">send the request! <i class="icon-long-arrow-right"></i>
+				</button>
+
+			</div>
+		</form>
+	</div>
+</div>
+

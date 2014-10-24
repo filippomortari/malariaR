@@ -33,4 +33,8 @@ angular.module('malariaRapp', ['ngRoute','common','input','output','results']).c
 		estimateR:''
 	};
 
+}).factory('socket', function(){
+
+	return []
+
 });
