@@ -5,6 +5,7 @@ import grails.converters.JSON
 class RScriptRequestController {
 	
 	def ScriptInvokerService
+	def ResponseManagerService
 
 	def index() { }
 
@@ -13,6 +14,14 @@ class RScriptRequestController {
 		UUID sesID = ScriptInvokerService.runRScript(reqObj)
 		def result = [sessionID:sesID.toString()]
 		render result as JSON
+	}
+	
+	def notifyResults(){
+		def sesID = params.sessionID
+		def email = params.email
+		
+		ResponseManagerService.sendResultsViaEmail(sesID,email);
+		render "ok"
 	}
 }
 
@@ -23,10 +32,47 @@ class RequestObjectCommand {
 	String species
 	Boolean estimateR
 	
+	Double zValDef
+	Integer isDefZ
+	Double zVal
+	Double kValDef
+	Integer isDefK
+	Double kVal
+	Integer cdrVal
+	Integer cdrValDef
+	Integer isDefCDR
+	Integer isFigure
+	Integer minFigRange
+	Integer minFigRangeDef
+	Integer isDefMinFR
+	Integer maxFigRange
+	Integer maxFigRangeDef
+	Integer isDefMaxFR
+	Integer nrOfPoints
+	Integer isLogXAxis
+	
 	static constraints = {
 		diseaseName nullable: true
 		species nullable: true
 		estimateR nullable: true
+		zValDef nullable: true
+		isDefZ nullable: true
+		zVal nullable: true
+		kValDef nullable: true
+		isDefK nullable: true
+		kVal nullable: true
+		cdrVal nullable: true 
+		cdrValDef nullable: true
+		isDefCDR nullable: true
+		isFigure nullable: true
+		minFigRange nullable: true
+		minFigRangeDef nullable: true
+		isDefMinFR nullable: true
+		maxFigRange nullable: true
+		maxFigRangeDef nullable: true
+		isDefMaxFR nullable: true
+		nrOfPoints nullable: true
+		isLogXAxis nullable: true
 	}
 	
 	

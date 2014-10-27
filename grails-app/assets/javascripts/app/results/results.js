@@ -9,9 +9,14 @@ angular.module('results', [])
 	$scope.processRequest = function(){
 		var jsonRequest = JSON.stringify($scope.request)
 		console.log(new Date() + jsonRequest)
+		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		if(!regex.test($scope.request.email)){
+			alert("please provide a valid email address (set it in output page)!");
+			return;
+		}
 		$http.post('RScriptRequest/newRequest', jsonRequest).
 		success(function(data, status, headers, config) {
-			alert(data.sessionID)
+			alert(data.sessionID )
 			if(typeof $scope.socket.client === 'undefined'){
 				$scope.socket.client = new SockJS(BASE_URL + '/stomp');
 	            $scope.socket.stomp = Stomp.over($scope.socket.client);

@@ -103,7 +103,7 @@ SGE_CELL = "bss"
 SGE_CLUSTER_NAME="BSS_6_2u5_1"
 
 RESULT_TARGET_LOCATION = "/wwwtmp/churcher/projects"
-R_SCRIPT_PATH = "/usr/biosoft/web/churcher/churcher_test.sh"
+R_SCRIPT_PATH = "/usr/biosoft/web/churcher/churcher.sh"
 
 // log4j configuration
 log4j.main = {
@@ -128,3 +128,6 @@ log4j.main = {
 
 grails.assets.minifyJs = false
 grails.assets.bundle = false
+
+grails.mail.host = "automail.cc.ic.ac.uk"
+MAIL_FROM = "cisbic-datamanagement@imperial.ac.uk"

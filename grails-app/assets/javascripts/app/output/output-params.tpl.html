@@ -31,10 +31,10 @@
 				<div class="form-group">
 					<label class="control-label">Figure</label>
 					<div class="radio">
-						<input name="figure_radio" type="radio" value="yes"> Yes <br>
+						<input ng-model="request.isFigure" type="radio" value="1"> Yes (default)<br>
 					</div>
 					<div class="radio">
-						<input name="figure_radio" type="radio" value="no"> No <br>
+						<input ng-model="request.isFigure" type="radio" value="0"> No <br>
 					</div>
 				</div>
 				<div class="form-group">
@@ -56,16 +56,26 @@
 				</div>
 				<h4>Figure range</h4>
 				<div class='form-group'>
-					<label class='control-label'>Minimum number of cases</label> <input
-						class='form-control' placeholder='cases detected...' type='text'>
+					<label class='control-label'>Minimum number of cases</label> <div class="radio">
+						<input type="radio" ng-model="request.isDefMinFR" value="1"> use default ({{request.minFigRangeDef}})<br>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"> <input type="radio" ng-model="request.isDefMinFR" value="0">
+						</span> <input type="text" class="form-control" placeholder="specify..." ng-model="request.minFigRange">
+					</div>
 				</div>
 				<div class='form-group'>
-					<label class='control-label'>Maximum number of cases</label> <input
-						class='form-control' placeholder='cases detected...' type='text'>
+					<label class='control-label'>Maximum number of cases</label> <div class="radio">
+						<input type="radio" ng-model="request.isDefMaxFR" value="1"> use default ({{request.maxFigRangeDef}})<br>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"> <input type="radio" ng-model="request.isDefMaxFR" value="0">
+						</span> <input type="text" class="form-control" placeholder="specify..." ng-model="request.maxFigRange">
+					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label">Number of points</label> <select
-						class="form-control">
+						class="form-control" ng-model="request.nrOfPoints">
 						<option>10</option>
 						<option>20</option>
 						<option>30</option>
@@ -76,16 +86,16 @@
 				<div class="form-group">
 					<label class="control-label">Log <i>x axis</i></label>
 					<div class="radio">
-						<input name="logXaxis" type="radio" value="yes"> Yes <br>
+						<input type="radio" ng-model="request.isLogXAxis" value="1"> Yes (default) <br>
 					</div>
 					<div class="radio">
-						<input name="logXaxis" type="radio" value="no"> No <br>
+						<input type="radio" ng-model="request.isLogXAxis" value="0"> No <br>
 					</div>
 				</div>
 				<legend>Where shall we send the results</legend>
 				<div class='form-group'>
 					<label class='control-label'>email address</label> <input
-						class='form-control' placeholder='cases detected...' type='text'>
+						class='form-control' type="email" type='text' ng-model="request.email">
 				</div>
 
 			</fieldset>

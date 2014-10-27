@@ -1,12 +1,13 @@
-<div class='panel panel-default' ng-controller="ResultsCtrl">
+<div class='panel panel-default'  ng-controller="ResultsCtrl">
 	<div class='panel-heading'>
 		<i class='icon-edit icon-large'></i> Results
 	</div>
-	<div class="panel-body">
+	<div class="panel-body" >
 		
 		<form>
-			
-
+			<div style="min-height:200px;">
+				<div class="alert alert-success" role="alert">Your results will be sent to the email <b>{{request.email}}</b></div>
+			</div>
 			<div class="form-actions text-center">
 				<button class="btn btn-primary btn-lg" ng-click="processRequest()">send the request! <i class="icon-long-arrow-right"></i>
 				</button>

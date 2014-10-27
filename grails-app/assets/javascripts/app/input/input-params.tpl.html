@@ -10,30 +10,18 @@
 					<label class="control-label">Disease</label> 
 					<select	class="form-control" ng-model="request.diseaseName">
 						<option>Malaria</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
 					</select>
 				</div>
 				<div class="form-group">
 					<label class="control-label">Species</label> <select
 						class="form-control">
 						<option>P.Falciparum</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
 					</select>
 				</div>
 				<div class="form-group">
 					<label class="control-label">Location</label> <select
 						class="form-control">
 						<option>NA</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
 					</select>
 				</div>
 
@@ -60,37 +48,37 @@
 				<div class="form-group">
 					<label class="control-label">Z</label>
 					<div class="radio">
-						<input  name="z_radio" type="radio"
-							value="default"> use default <br>
+						<input type="radio"
+							 ng-model="request.isDefZ" value="1"> use default ({{request.zValDef}})<br>
 					</div>
 					<div class="input-group">
 						<span class="input-group-addon"> <input
-							name="z_radio"  type="radio">
-						</span> <input type="text" class="form-control" placeholder="specify...">
+							 type="radio" ng-model="request.isDefZ" value="0">
+						</span> <input type="text" class="form-control" placeholder="specify..." ng-model="request.zVal">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label"><i>k</i></label>
 					<div class="radio">
-						<input name="k_radio" type="radio"
-							value="default"> use default <br>
+						<input type="radio" ng-model="request.isDefK" value="1"> use default ({{request.kValDef}})<br>
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon"> <input
-							name="k_radio" type="radio">
-						</span> <input type="text" class="form-control" placeholder="specify...">
+						<span class="input-group-addon"> <input type="radio" ng-model="request.isDefK" value="0">
+						</span> <input type="text" class="form-control" placeholder="specify..." ng-model="request.kVal">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label"><i>Minimum possible case detection rate</i></label>
 					<div class="radio">
-						<input name="k_radio" type="radio"
-							value="unknown"> Not known <br>
+						<input type="radio" ng-model="request.isDefCDR" value="1"> use default ({{request.cdrValDef}})<br>
+					</div>
+					<div class="radio">
+						<input type="radio"
+							ng-model="request.isDefCDR" value="9"> Not known <br>
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon"> <input
-							name="k_radio" type="radio">
-						</span> <input type="text" class="form-control" placeholder="specify...">
+						<span class="input-group-addon"> <input type="radio" ng-model="request.isDefCDR" value="0">
+						</span> <input type="text" class="form-control" placeholder="specify..." ng-model="request.cdrVal">
 					</div>
 				</div>
 

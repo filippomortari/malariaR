@@ -28,9 +28,27 @@ angular.module('malariaRapp', ['ngRoute','common','input','output','results']).c
 }]).factory('request', function(){
 
 	return {
-		diseaseName:'',
-		species:'',
-		estimateR:''
+		diseaseName:'Malaria',
+		species:'P.Falciparum',
+		zValDef:15,
+		isDefZ:"1",
+		zVal:'',
+		kValDef:0.2,
+		isDefK:"1",
+		kVal:'',
+		cdrVal:'',
+		cdrValDef:10,
+		isDefCDR:"1",
+		estimateR:'',
+		isFigure:'1',
+		minFigRange:'',
+		minFigRangeDef:10,
+		isDefMinFR:"1",
+		maxFigRange:'',
+		maxFigRangeDef:500,
+		isDefMaxFR:"1",
+		nrOfPoints:20,
+		isLogXAxis:'1'
 	};
 
 }).factory('socket', function(){
