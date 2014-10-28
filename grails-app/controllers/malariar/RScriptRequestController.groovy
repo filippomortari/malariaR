@@ -21,7 +21,19 @@ class RScriptRequestController {
 		def email = params.email
 		
 		ResponseManagerService.sendResultsViaEmail(sesID,email);
-		render "ok"
+		def jsonImageResponse = ResponseManagerService.packClientResponse(sesID);
+		render jsonImageResponse as JSON
+	}
+	
+	def resultAsPNG(){
+		def sesID = params.sessionID
+		
+		File file = ResponseManagerService.retrieveResultAsImage(sesID)
+		
+		response.setHeader('Cache-Control', 'no-cache')
+		response.contentType = "image/png"
+		response.outputStream << file.getBytes()
+		response.outputStream.flush()
 	}
 }
 
@@ -50,6 +62,8 @@ class RequestObjectCommand {
 	Integer isDefMaxFR
 	Integer nrOfPoints
 	Integer isLogXAxis
+	
+	String email
 	
 	static constraints = {
 		diseaseName nullable: true

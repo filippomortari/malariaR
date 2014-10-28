@@ -1,7 +1,7 @@
 angular.module('results', [])
 
-.controller('ResultsCtrl', ['$scope','request','$log','$http','socket',
-                           function($scope,request,$log,$http,socket) {
+.controller('ResultsCtrl', ['$scope','request','$log','$http','socket','$cookieStore',
+                           function($scope,request,$log,$http,socket, $cookieStore) {
 	$scope.$log = $log;
 	$scope.request = request;
 	$scope.socket = socket;
@@ -16,7 +16,9 @@ angular.module('results', [])
 		}
 		$http.post('RScriptRequest/newRequest', jsonRequest).
 		success(function(data, status, headers, config) {
-			alert(data.sessionID )
+			$cookieStore.put('sessionID', data.sessionID);
+			$( "#resultContainer" ).show( "slow" );
+			console.log(data.sessionID);
 			if(typeof $scope.socket.client === 'undefined'){
 				$scope.socket.client = new SockJS(BASE_URL + '/stomp');
 	            $scope.socket.stomp = Stomp.over($scope.socket.client);

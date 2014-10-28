@@ -1,12 +1,18 @@
 package malariar
 
+import grails.converters.JSON
 import grails.transaction.Transactional
+import java.awt.image.BufferedImage
+import javax.imageio.ImageIO
+import java.util.Base64
+import org.codehaus.groovy.grails.web.mapping.LinkGenerator
 
 @Transactional
 class ResponseManagerService {
-	
+
 	def grailsApplication
-	
+	def grailsLinkGenerator
+
 	def serviceMethod() {
 
 	}
@@ -35,5 +41,19 @@ class ResponseManagerService {
 
 	def sendResultsViaEmail(def sesID, def address){
 		sendPost(address, grailsApplication.config.RESULT_TARGET_LOCATION+"/"+sesID+"/plot.pdf", "application/pdf")
+	}
+
+	def packClientResponse(def sesID){
+		
+		//File imageFile =new File(grailsApplication.config.RESULT_TARGET_LOCATION+"/"+sesID+"/plot.png");
+		//String base64String= imageFile.getBytes().encodeBase64().toString()
+		def result = [imageURL:grailsLinkGenerator.link(controller: 'RScriptRequest', action: 'resultAsPNG', params:[sessionID:sesID], absolute: true)]
+
+		return result
+	}
+	
+	def retrieveResultAsImage(def sesID){
+		File imageFile =new File(grailsApplication.config.RESULT_TARGET_LOCATION+"/"+sesID+"/plot.png");
+		return imageFile
 	}
 }

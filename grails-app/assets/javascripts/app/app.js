@@ -7,7 +7,7 @@
 //= require common
 
 
-angular.module('malariaRapp', ['ngRoute','common','input','output','results']).config(['$routeProvider',
+angular.module('malariaRapp', ['ngRoute','ngCookies','common','input','output','results']).config(['$routeProvider',
                     function($routeProvider) {
 	$routeProvider.
 	when('/input', {
@@ -48,7 +48,8 @@ angular.module('malariaRapp', ['ngRoute','common','input','output','results']).c
 		maxFigRangeDef:500,
 		isDefMaxFR:"1",
 		nrOfPoints:20,
-		isLogXAxis:'1'
+		isLogXAxis:'1',
+		email:''
 	};
 
 }).factory('socket', function(){

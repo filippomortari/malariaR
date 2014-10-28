@@ -32,10 +32,11 @@ class ScriptInvokerService {
 				((rObj.minFigRange!= null) ? rObj.minFigRange : rObj.minFigRangeDef)+" "+
 				((rObj.maxFigRange!= null) ? rObj.maxFigRange : rObj.maxFigRangeDef)+" "+
 				rObj.nrOfPoints+" "+
-				rObj.isLogXAxis
+				rObj.isLogXAxis+" "+
+				rObj.email
 		println(cmd)
 		
-		Process scriptProc = Runtime.getRuntime().exec(cmd,envSettings)
+		//Process scriptProc = Runtime.getRuntime().exec(cmd,envSettings)
 		
 		return sesID
 	}
