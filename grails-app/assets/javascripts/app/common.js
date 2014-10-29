@@ -12,17 +12,22 @@ angular.module('common').controller('HeaderCtrl',
 	      return ""
 	    }
 	}
-});
+}).controller('CommonsCtrl', ['$scope','request','$log','$http','socket','$cookieStore','$window',
+                              function($scope,request,$log,$http,socket, $cookieStore, $window) {
 
-/*
- * 
- * angular.module('common', [])
-
-.controller('HeaderCtrl', ['$scope', '$location'
-                            function($scope, $location) {
-	$scope.isActive = function (viewLocation) { 
-        return viewLocation === $location.path();
-    };
-}]);
- * 
- */
+	$scope.$log = $log;
+	$scope.request = request;
+	$scope.socket = socket;
+	$scope.$cookieStore = $cookieStore;
+	
+	$window.onbeforeunload = function () {
+		if(typeof $scope.socket.client != 'undefined'){
+			$scope.socket.client.close();
+			$scope.socket = []
+		}
+	}
+	
+	$scope.init = function() {
+		
+	}
+}])

@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div class="">
-	    <div ng-view class="view-frame"></div>
+	    <div ng-view class="view-frame" ng-controller="CommonsCtrl" ng-init="init()"></div>
 	</div>
 </body>
 </html>

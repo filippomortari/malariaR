@@ -36,7 +36,7 @@ class ScriptInvokerService {
 				rObj.email
 		println(cmd)
 		
-		//Process scriptProc = Runtime.getRuntime().exec(cmd,envSettings)
+		Process scriptProc = Runtime.getRuntime().exec(cmd,envSettings)
 		
 		return sesID
 	}

@@ -8,7 +8,7 @@
 
 
 angular.module('malariaRapp', ['ngRoute','ngCookies','common','input','output','results']).config(['$routeProvider',
-                    function($routeProvider) {
+                                                                                                   function($routeProvider) {
 	$routeProvider.
 	when('/input', {
 		templateUrl: 'assets/app/input/input-params.tpl.html',
@@ -25,9 +25,12 @@ angular.module('malariaRapp', ['ngRoute','ngCookies','common','input','output','
 	otherwise({
 		redirectTo: '/input'
 	});
-}]).factory('request', function(){
-
-	return {
+}]).factory('request', function($cookieStore){
+	if(typeof $cookieStore.get('reqSession') != 'undefined'){
+		return $cookieStore.get('reqSession')
+	}
+	else
+		return {
 		diseaseName:'Malaria',
 		species:'P.Falciparum',
 		zValDef:15,

@@ -11,8 +11,7 @@
 					<pre>{{request}}</pre>
 				</div>
 			</div>
-			<div id="resultContainer" style="display: none;" class="row"
-				style="min-height:200px;">
+			<div id="resultContainer" style="display: none; min-height:200px;" class="row">
 				<div class="col-md-12 text-center">
 					<div class="alert alert-success" role="alert">
 						Your results will be sent to the email <b>{{request.email}}</b>.
@@ -23,8 +22,14 @@
 				<div class="col-md-12 text-center">
 					<img src="assets/flat-preloader.gif" />
 				</div>
-
-
+			</div>
+			<div id="resultContainerSocket" style="min-height:250px; display:none ;" class="row">
+				<div class="col-md-12 text-center">
+						<h4>Results:</h4>
+				</div>
+				<div class="col-md-12 text-center">
+					<img id="imgResult" src="" />
+				</div>
 			</div>
 			<div class="form-actions text-center">
 				<button class="btn btn-primary btn-lg" ng-click="processRequest()">

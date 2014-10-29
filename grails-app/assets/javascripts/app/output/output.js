@@ -5,5 +5,4 @@ angular.module('output', [])
 	$scope.$log = $log;
 	$scope.request = request;
 	
-
 }]);
