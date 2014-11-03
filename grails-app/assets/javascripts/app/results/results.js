@@ -40,6 +40,10 @@ angular.module('results', [])
 			$( "#resultContainer" ).show( "slow" );
 			$( "#resultContainerSocket" ).hide();
 			console.log(data.sessionID);
+			if(typeof $scope.socket.client != 'undefined'){
+				$scope.socket.client.close();
+				$scope.socket = []
+			}
 			if(typeof $scope.socket.client == 'undefined'){
 				$scope.socket.client = new SockJS(BASE_URL + '/stomp');
 				$scope.socket.stomp = Stomp.over($scope.socket.client);
