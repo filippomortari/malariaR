@@ -17,26 +17,14 @@
 						<input name="estimate_radio" ng-model="request.estimateR" type="radio" value="false"> No <br>
 					</div>
 				</div>
-				<div class="form-group">
-					<label class="control-label"><i>Number of cases detected</i></label>
-					<div class="radio">
-						<input type="radio" ng-model="request.isDefCasesDetected" value="1"> use default ({{request.casesDetectedDef}})<br>
-					</div>
-					<div class="input-group">
-						<span class="input-group-addon"> <input type="radio" ng-model="request.isDefCasesDetected" value="0">
-						</span> <input type="text" class="form-control" placeholder="specify..." ng-model="request.casesDetected">
-					</div>
+				<div class='form-group'>
+					<label class='control-label'>Number of cases detected</label> <input
+						class='form-control' placeholder='cases detected...' type='text'>
 				</div>
-				<div class="form-group">
-					<label class="control-label"><i>How many of these were
-						imported</i></label>
-					<div class="radio">
-						<input type="radio" ng-model="request.isDefImported" value="1"> use default ({{request.importedDef}})<br>
-					</div>
-					<div class="input-group">
-						<span class="input-group-addon"> <input type="radio" ng-model="request.isDefImported" value="0">
-						</span> <input type="text" class="form-control" placeholder="specify..." ng-model="request.imported">
-					</div>
+				<div class='form-group'>
+					<label class='control-label'>How many of these were
+						imported</label> <input class='form-control' placeholder='Enter username'
+						type='text'>
 				</div>
 				<div class="form-group">
 					<label class="control-label">Figure</label>
