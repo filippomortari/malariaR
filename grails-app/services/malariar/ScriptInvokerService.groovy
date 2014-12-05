@@ -15,25 +15,29 @@ class ScriptInvokerService {
 	def runRScript(RequestObjectCommand rObj) {
 
 		String[] envSettings = ["SGE_ROOT="+grailsApplication.config.SGE_ROOT,"SGE_QMASTER_PORT=6444","SGE_EXECD_PORT=6445","SGE_CELL="+grailsApplication.config.SGE_CELL,"SGE_CLUSTER_NAME="+grailsApplication.config.SGE_CLUSTER_NAME]
-		String cmd = grailsApplication.config.SGE_ROOT+"/bin/lx26-amd64/qsub -pe smp 1 "+grailsApplication.config.R_SCRIPT_PATH+" "+grailsApplication.config.RESULT_TARGET_LOCATION+" "
+		String cmd = grailsApplication.config.SGE_ROOT+"/bin/lx26-amd64/qsub -q quick "+grailsApplication.config.R_SCRIPT_PATH+" -p "+grailsApplication.config.RESULT_TARGET_LOCATION+" "
 
 		def sesID = UUID.randomUUID()
-		cmd = cmd + sesID.toString() + 
-				" " +
+		cmd = cmd +" -l "+ sesID.toString() +
+				" -P " + ((rObj.isFigure== 1) ? "T" : "F" ) +
+				" -e " + ((rObj.estimateR == true) ? "T" : "F" ) +
 				//z
-				((rObj.zVal!= null) ? rObj.zVal : rObj.zValDef )+" "+
+				" -Z "+((rObj.isDefZ == 0) ? rObj.zVal : rObj.zValDef )+" "+
 				//k
-				((rObj.kVal!= null) ? rObj.kVal : rObj.kValDef )+" "+
-				// R
-				"1 "+
+				"-k "+((rObj.isDefK == 0) ? rObj.kVal : rObj.kValDef )+" "+
+				//imported
+				"-i "+((rObj.isDefImported == 0) ? rObj.imported : rObj.importedDef )+" "+
+				//detected
+				"-c "+((rObj.isDefCasesDetected == 0) ? rObj.casesDetected : rObj.casesDetectedDef )+" "+
 				//cdr
-				((rObj.cdrVal!= null) ? rObj.cdrVal : rObj.cdrValDef)+" "+
+				"-d "+((rObj.isDefCDR == 0) ? rObj.cdrVal : rObj.cdrValDef)+" "+
 				//minFigRangeDef
-				((rObj.minFigRange!= null) ? rObj.minFigRange : rObj.minFigRangeDef)+" "+
-				((rObj.maxFigRange!= null) ? rObj.maxFigRange : rObj.maxFigRangeDef)+" "+
-				rObj.nrOfPoints+" "+
-				rObj.isLogXAxis+" "+
-				rObj.email
+				"-m "+((rObj.isDefMinFR == 0) ? rObj.minFigRange : rObj.minFigRangeDef)+" "+
+				"-x "+((rObj.isDefMaxFR == 0) ? rObj.maxFigRange : rObj.maxFigRangeDef)+" "+
+				"-n " + rObj.nrOfPoints+" "+
+				"-s "+ rObj.isLogXAxis+" "+
+				"-R 1"+" "+
+				"-E "+rObj.email
 		println(cmd)
 		
 		Process scriptProc = Runtime.getRuntime().exec(cmd,envSettings)

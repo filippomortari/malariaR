@@ -103,7 +103,7 @@ SGE_CELL = "bss"
 SGE_CLUSTER_NAME="BSS_6_2u5_1"
 
 RESULT_TARGET_LOCATION = "/wwwtmp/churcher/projects"
-R_SCRIPT_PATH = "/usr/biosoft/web/churcher/churcher.sh"
+R_SCRIPT_PATH = "/usr/biosoft/web/churcher/malariaR.sh"
 
 // log4j configuration
 log4j.main = {
