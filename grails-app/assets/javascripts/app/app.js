@@ -42,7 +42,7 @@ angular.module('malariaRapp', ['ngRoute','ngCookies','common','input','output','
 		cdrVal:'',
 		cdrValDef:10,
 		isDefCDR:"1",
-		estimateR:'',
+		estimateR:'true',
 		isFigure:'1',
 		minFigRange:'',
 		minFigRangeDef:10,
@@ -52,6 +52,12 @@ angular.module('malariaRapp', ['ngRoute','ngCookies','common','input','output','
 		isDefMaxFR:"1",
 		nrOfPoints:20,
 		isLogXAxis:'1',
+		imported:'',
+		isDefImported:'1',
+		importedDef:'50',
+		casesDetected:'',
+		isDefCasesDetected:'1',
+		casesDetectedDef:'138',
 		email:''
 	};
 

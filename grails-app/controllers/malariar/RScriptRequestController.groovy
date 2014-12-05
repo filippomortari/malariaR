@@ -76,6 +76,12 @@ class RequestObjectCommand {
 	Integer isDefMaxFR
 	Integer nrOfPoints
 	Integer isLogXAxis
+	Integer imported
+	Integer isDefImported
+	Integer importedDef
+	Integer isDefCasesDetected
+	Integer casesDetected
+	Integer casesDetectedDef
 	
 	String email
 	
@@ -101,6 +107,12 @@ class RequestObjectCommand {
 		isDefMaxFR nullable: true
 		nrOfPoints nullable: true
 		isLogXAxis nullable: true
+		imported nullable:true
+		isDefImported nullable:true
+		importedDef nullable:true
+		isDefCasesDetected nullable:true
+		casesDetected nullable:true
+		casesDetectedDef nullable:true
 	}
 	
 	
