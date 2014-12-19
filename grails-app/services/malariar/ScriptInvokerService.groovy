@@ -18,7 +18,7 @@ class ScriptInvokerService {
 		String cmd = grailsApplication.config.SGE_ROOT+"/bin/lx26-amd64/qsub -q quick "+grailsApplication.config.R_SCRIPT_PATH+" -p "+grailsApplication.config.RESULT_TARGET_LOCATION+" "
 
 		def sesID = UUID.randomUUID()
-		cmd = cmd +" -l "+ sesID.toString() +
+		cmd = cmd +" -I "+ sesID.toString() +
 				" -P " + ((rObj.isFigure== 1) ? "T" : "F" ) +
 				" -e " + ((rObj.estimateR == true) ? "T" : "F" ) +
 				//z
@@ -40,7 +40,7 @@ class ScriptInvokerService {
 				"-E "+rObj.email
 		println(cmd)
 		
-		Process scriptProc = Runtime.getRuntime().exec(cmd,envSettings)
+		//Process scriptProc = Runtime.getRuntime().exec(cmd,envSettings)
 		
 		return sesID
 	}

@@ -3,41 +3,50 @@
 		<i class='icon-edit icon-large'></i> Output Parameters
 	</div>
 	<div class="panel-body">
-		
 		<form>
 			<fieldset>
 				<legend>Output</legend>
+				<!-- 
 				<div class="form-group">
 					<label class="control-label">Individual Estimate of R</label>
+					
 					<div class="radio">
-						<input name="estimate_radio" ng-model="request.estimateR" type="radio" value="true"> Yes
+						<input name="estimate_radio" ng-model="request.estimateR" type="radio" value="1"> Yes
 						<br>
 					</div>
 					<div class="radio">
-						<input name="estimate_radio" ng-model="request.estimateR" type="radio" value="false"> No <br>
+						<input name="estimate_radio" ng-model="request.estimateR" type="radio" value="0"> No <br>
+					</div>
+				</div>
+				  -->
+				<div class="form-group">
+					<label class="control-label">Number of cases detected</label>
+					<div class="radio">
+						<input type="radio" ng-model="request.isDefCasesDetected"
+							value="1"> use default ({{request.casesDetectedDef}})<br>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"> <input type="radio"
+							ng-model="request.isDefCasesDetected" value="0">
+						</span> <input type="text" class="form-control" placeholder="specify..."
+							ng-model="request.casesDetected">
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label"><i>Number of cases detected</i></label>
+					<label class="control-label">How many of these were
+						imported</label>
 					<div class="radio">
-						<input type="radio" ng-model="request.isDefCasesDetected" value="1"> use default ({{request.casesDetectedDef}})<br>
+						<input type="radio" ng-model="request.isDefImported" value="1">
+						use default ({{request.importedDef}})<br>
 					</div>
 					<div class="input-group">
-						<span class="input-group-addon"> <input type="radio" ng-model="request.isDefCasesDetected" value="0">
-						</span> <input type="text" class="form-control" placeholder="specify..." ng-model="request.casesDetected">
+						<span class="input-group-addon"> <input type="radio"
+							ng-model="request.isDefImported" value="0">
+						</span> <input type="text" class="form-control" placeholder="specify..."
+							ng-model="request.imported">
 					</div>
 				</div>
-				<div class="form-group">
-					<label class="control-label"><i>How many of these were
-						imported</i></label>
-					<div class="radio">
-						<input type="radio" ng-model="request.isDefImported" value="1"> use default ({{request.importedDef}})<br>
-					</div>
-					<div class="input-group">
-						<span class="input-group-addon"> <input type="radio" ng-model="request.isDefImported" value="0">
-						</span> <input type="text" class="form-control" placeholder="specify..." ng-model="request.imported">
-					</div>
-				</div>
+				<!-- 
 				<div class="form-group">
 					<label class="control-label">Figure</label>
 					<div class="radio">
@@ -47,7 +56,8 @@
 						<input ng-model="request.isFigure" type="radio" value="0"> No <br>
 					</div>
 				</div>
-				<div class="form-group">
+				  -->
+				<div class="form-group" id="rThresold">
 					<label class="control-label">R thresold</label>
 					<div class="radio">
 						<input name="rThresold" type="radio" value="half"> 0.5 <br>
@@ -64,58 +74,113 @@
 						</span> <input type="text" class="form-control" placeholder="specify...">
 					</div>
 				</div>
-				<h4>Figure range</h4>
-				<div class='form-group'>
-					<label class='control-label'>Minimum number of cases</label> <div class="radio">
-						<input type="radio" ng-model="request.isDefMinFR" value="1"> use default ({{request.minFigRangeDef}})<br>
+				<section id="figureSection">
+					<h4>Figure range</h4>
+					<div class='form-group'>
+						<label class='control-label'>Minimum number of cases</label>
+						<div class="radio">
+							<input type="radio" ng-model="request.isDefMinFR" value="1">
+							use default ({{request.minFigRangeDef}})<br>
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"> <input type="radio"
+								ng-model="request.isDefMinFR" value="0">
+							</span> <input type="text" class="form-control" placeholder="specify..."
+								ng-model="request.minFigRange">
+						</div>
 					</div>
-					<div class="input-group">
-						<span class="input-group-addon"> <input type="radio" ng-model="request.isDefMinFR" value="0">
-						</span> <input type="text" class="form-control" placeholder="specify..." ng-model="request.minFigRange">
+					<div class='form-group'>
+						<label class='control-label'>Maximum number of cases</label>
+						<div class="radio">
+							<input type="radio" ng-model="request.isDefMaxFR" value="1">
+							use default ({{request.maxFigRangeDef}})<br>
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"> <input type="radio"
+								ng-model="request.isDefMaxFR" value="0">
+							</span> <input type="text" class="form-control" placeholder="specify..."
+								ng-model="request.maxFigRange">
+						</div>
 					</div>
-				</div>
-				<div class='form-group'>
-					<label class='control-label'>Maximum number of cases</label> <div class="radio">
-						<input type="radio" ng-model="request.isDefMaxFR" value="1"> use default ({{request.maxFigRangeDef}})<br>
+					<div class="form-group">
+						<label class="control-label">Number of points</label> <select
+							class="form-control" ng-model="request.nrOfPoints">
+							<option>10</option>
+							<option>20</option>
+							<option>30</option>
+							<option>40</option>
+							<option>50</option>
+						</select>
 					</div>
-					<div class="input-group">
-						<span class="input-group-addon"> <input type="radio" ng-model="request.isDefMaxFR" value="0">
-						</span> <input type="text" class="form-control" placeholder="specify..." ng-model="request.maxFigRange">
+					<div class="form-group">
+						<label class="control-label">Log <i>x axis</i></label>
+						<div class="radio">
+							<input type="radio" ng-model="request.isLogXAxis" value="1">
+							Yes (default) <br>
+						</div>
+						<div class="radio">
+							<input type="radio" ng-model="request.isLogXAxis" value="0">
+							No <br>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label">Number of points</label> <select
-						class="form-control" ng-model="request.nrOfPoints">
-						<option>10</option>
-						<option>20</option>
-						<option>30</option>
-						<option>40</option>
-						<option>50</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label class="control-label">Log <i>x axis</i></label>
-					<div class="radio">
-						<input type="radio" ng-model="request.isLogXAxis" value="1"> Yes (default) <br>
-					</div>
-					<div class="radio">
-						<input type="radio" ng-model="request.isLogXAxis" value="0"> No <br>
-					</div>
-				</div>
+				</section>
 				<legend>Where shall we send the results</legend>
 				<div class='form-group'>
 					<label class='control-label'>email address</label> <input
-						class='form-control' type="email" type='text' ng-model="request.email">
+						class='form-control' type="email" type='text'
+						ng-model="request.email">
 				</div>
 
 			</fieldset>
 
 			<div class="form-actions text-center">
-				<a ng-href="#/results" class="btn btn-primary" >go to results <i class="icon-long-arrow-right"></i>
+				<a ng-href="#/results" class="btn btn-primary">go to results <i
+					class="icon-long-arrow-right"></i>
 				</a>
 
 			</div>
 		</form>
 	</div>
+	<div class="no-print open" id="rightToolbar"
+		style="position: fixed; top: 230px; right: 210px; border-top-left-radius: 5px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 5px; padding: 10px 15px; font-size: 16px; z-index: 999999; cursor: pointer; color: rgb(221, 221, 221); background: rgba(0, 0, 0, 0.701961);">
+		<i class="icon-cogs"></i>
+	</div>
+	<div class="no-print" id="rightToolbarContent"
+		style="padding: 10px; position: fixed; top: 190px; right: 60px; border: 3px solid rgba(0, 0, 0, 0.701961); width: 150px; z-index: 999999; background: rgb(255, 255, 255); overflow-y: auto; max-height: 100%;">
+		<h4
+			style="margin: 0 0 20px 0; border-bottom: 1px dashed #ddd; padding-bottom: 3px;">Options</h4>
+		<div class="text-center">
+			<label class="control-label">Individual Estimate of R</label>
+			<toggle-switch ng-model="request.estimateR" on-label="Yes"
+				off-label="No">
+			<toggle-switch>
+			<br>
+		</div>
+		<div class="text-center"
+			style="margin-top: 20px; margin-bottom: 20px;">
+			<label class="control-label">Output Figure</label>
+			<toggle-switch ng-model="request.isFigure" on-label="Yes"
+				off-label="No">
+			<toggle-switch>
+			<br>
+		</div>
+	</div>
+
 </div>
+<script type="text/javascript">
+	//right toolbar for quick navigation (display or hide)
+	$("#rightToolbar").click(function() {
+		//alert("hello");
+		if (!$("#rightToolbar").hasClass("open")) {
+			$("#rightToolbar").css("right", "210px");
+			$("#rightToolbarContent").css("right", "60px");
+			$("#rightToolbar").addClass("open");
+		} else {
+			$("#rightToolbar").css("right", "60px");
+			$("#rightToolbarContent").css("right", "-150px");
+			$("#rightToolbar").removeClass("open")
+		}
+	});
+</script>
+
 

@@ -7,7 +7,7 @@
 //= require common
 
 
-angular.module('malariaRapp', ['ngRoute','ngCookies','common','input','output','results']).config(['$routeProvider',
+angular.module('malariaRapp', ['ngRoute','ngCookies','toggle-switch','common','input','output','results']).config(['$routeProvider',
                                                                                                    function($routeProvider) {
 	$routeProvider.
 	when('/input', {
@@ -42,7 +42,7 @@ angular.module('malariaRapp', ['ngRoute','ngCookies','common','input','output','
 		cdrVal:'',
 		cdrValDef:10,
 		isDefCDR:"1",
-		estimateR:'true',
+		estimateR:'1',
 		isFigure:'1',
 		minFigRange:'',
 		minFigRangeDef:10,

@@ -11,6 +11,7 @@
 //= require angular/angular
 //= require angular-route/angular-route
 //= require angular-cookies/angular-cookies
+//= require angular-toggle-switch/angular-toggle-switch
 //= require_tree views
 //= require app/app
 //= require app/controllers
@@ -18,4 +19,4 @@
 
 
 
-console.log("angrailsfest load complete.");
+console.log("eliminateR angular app load complete.");

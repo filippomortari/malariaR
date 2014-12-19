@@ -18,6 +18,8 @@
 <link rel="apple-touch-icon" sizes="114x114"
 	href="${assetPath(src: 'apple-touch-icon-retina.png')}">
 <asset:stylesheet src="style.css" />
+<asset:stylesheet src="angular-toggle-switch.css" />
+<asset:stylesheet src="angular-toggle-switch-bootstrap.css" />
 <link
 	href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css" />
@@ -26,7 +28,6 @@
 <asset:javascript src="spring-websocket" />
 <script>
         window.BASE_URL =  "${request.getContextPath()}";
-
 </script>
 
 <g:layoutHead />
@@ -34,8 +35,7 @@
 <body class='main page' ng-app="malariaRapp">
 	<!-- Navbar -->
 	<div class='navbar navbar-default' id='navbar'>
-		<a class='navbar-brand' href='#'> <i class='icon-bar-chart'></i> R
-			script thing
+		<a class='navbar-brand' href='#'> <i class='icon-bar-chart'></i> /eliminateR/
 		</a>
 		<ul class='nav navbar-nav pull-right'>
 			<!-- <li class='dropdown'><a class='dropdown-toggle'
